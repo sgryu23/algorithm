@@ -8,7 +8,7 @@ bags = []
 ans = 0
 
 for n in range(N):
-    M, V = map(int, input().split())  # M: 무게, V: 가격 (V 크기 순서대로 우선정렬)
+    M, V = map(int, input().split())  # M: 무게, V: 가격 (M 순서대로 우선정렬)
     heapq.heappush(queue, [M, V])
 
 for k in range(K):
