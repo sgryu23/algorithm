@@ -37,6 +37,7 @@ for student in range(students):
         continue
     elif len(checked_list) == 1:
         arr[checked_list[0][2]][checked_list[0][3]] = student_num
+        continue
     # 2번 조건
     max_blank = checked_list[0][1]
     for_third_condition = [[checked_list[0][2], checked_list[0][3]]]
