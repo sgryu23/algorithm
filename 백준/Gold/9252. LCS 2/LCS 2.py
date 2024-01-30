@@ -1,25 +1,25 @@
 import sys
 input = sys.stdin.readline
 
-s1 = [''] + list(input().rstrip())
-s2 = [''] + list(input().rstrip())
-l1 = len(s1)
-l2 = len(s2)
-dp = [[''] * l2 for _ in range(l1)]
+string1 = [''] + list(input().rstrip())
+string2 = [''] + list(input().rstrip())
+len_str1 = len(string1) - 1
+len_str2 = len(string2) - 1
 
-for i in range(1, l1):
-    for j in range(1, l2):
-        if s1[i] == s2[j]:
-            dp[i][j] = dp[i-1][j-1] + s1[i]
+dp = [['' for i in range(len_str1 + 1)] for _ in range(len_str2 + 1)]
+for row in range(1, len_str2 + 1):
+    for col in range(1, len_str1 + 1):
+        # 두 문자열이 일치하는 경우
+        if string2[row] == string1[col]:
+            dp[row][col] = dp[row - 1][col - 1] + string1[col]
+        # 일치하지 않는 경우
         else:
-            if len(dp[i-1][j]) >= len(dp[i][j-1]):
-                dp[i][j] = dp[i-1][j]
+            if len(dp[row - 1][col]) >= len(dp[row][col - 1]):
+                dp[row][col] = dp[row - 1][col]
             else:
-                dp[i][j] = dp[i][j-1]
+                dp[row][col] = dp[row][col - 1]
 
 ans = dp[-1][-1]
-if len(ans) == 0:
-    print(len(ans))
-else:
-    print(len(ans))
+print(len(ans))
+if len(ans) > 0:
     print(ans)
