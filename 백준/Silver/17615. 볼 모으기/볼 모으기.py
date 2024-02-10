@@ -2,23 +2,19 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-balls = list(input())
+balls = str(input().strip())
+answer_candidate = []
 
-find_blue = False
-answer_red = 0
-for ball in range(n, -1, -1):
-    if balls[ball] == 'B' and not find_blue:
-        find_blue = True
-    elif balls[ball] == 'R' and find_blue:
-        answer_red += 1
+red_to_right = balls.rstrip('R')
+answer_candidate.append(red_to_right.count('R'))
 
-find_red = False
-answer_blue = 0
-for ball in range(n, -1, -1):
-    if balls[ball] == 'R' and not find_red:
-        find_red = True
-    elif balls[ball] == 'B' and find_red:
-        answer_blue += 1
+blue_to_right = balls.rstrip('B')
+answer_candidate.append(blue_to_right.count('B'))
 
-answer = min(answer_red, answer_blue)
-print(answer)
+red_to_left = balls.lstrip('R')
+answer_candidate.append(red_to_left.count('R'))
+
+blue_to_left = balls.lstrip('B')
+answer_candidate.append(blue_to_left.count('B'))
+
+print(min(answer_candidate))
