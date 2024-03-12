@@ -27,9 +27,8 @@ def sub_b(string):
 
 S = input().rstrip()  # S: 바꿔야 하는 문자열
 T = input().rstrip()  # T: 목표 문자열
-input_T = T[:]
 
-sub_a(input_T)
-sub_b(input_T)
+sub_a(T)
+sub_b(T)
 
 print(0)
