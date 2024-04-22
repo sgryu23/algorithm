@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10 ** 5)
 from collections import deque
 input = sys.stdin.readline
 
@@ -43,12 +43,13 @@ def moving(arr, num):
     # 만약 전체 배열을 탐색했는데 l 명 이상 r 명 이하인 구역이 없다면 탐색 종료
     if not flag:
         print(num)
+    # l 명 이상 r 명 이하인 구역이 있다면 추가로 탐색(dfs)
     else:
         moving(new_grid, num + 1)
 
 
 n, l, r = map(int, input().split())  # n: 땅의 크기, l: l명 이상, r: r명 이하
-grid = []
+grid = []   # grid: 땅 크기
 for _ in range(n):
     grid.append(list(map(int, input().split())))
 
