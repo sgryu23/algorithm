@@ -1,2 +1,1 @@
-X=int(input())
-print(X%21)
+print(int(input())%21)
