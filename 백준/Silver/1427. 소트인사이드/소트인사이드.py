@@ -1,9 +1,11 @@
 import sys
+input = sys.stdin.readline
 
-N = list(map(int, sys.stdin.readline().rstrip()))
-sorted_N = sorted(N, reverse=True)
-answer = ''
-for i in sorted_N:
-    answer += str(i)
-
-print(answer)
+a = []
+for i in input():
+    a.append(i)
+a.sort(reverse=True)
+ans = ''
+for i in a:
+    ans += str(i)
+print(ans)
