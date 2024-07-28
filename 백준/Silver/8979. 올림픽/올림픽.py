@@ -9,16 +9,11 @@ for _ in range(N):
 
 countries.sort(key=lambda x: (x[1], x[2], x[3]), reverse=True)
 
-ranking, cumulative = 1, 0
-
-for i in range(1, N):
-    if countries[i - 1][1:] == countries[i][1:]:
-        cumulative += 1
-    else:
-        if cumulative:
-            ranking += cumulative
-            cumulative = 0
-        ranking += 1
+for i in range(N):
     if countries[i][0] == K:
-        print(ranking)
+        idx = i
+
+for j in range(N):
+    if countries[idx][1:] == countries[j][1:]:
+        print(j + 1)
         break
